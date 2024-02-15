@@ -10,6 +10,7 @@ router.get("/", (req, res, next) => {
     next(e);
   }
 });
+
 //ADD NEW USER
 router.post("/", (req, res, next) => {
   try {

@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { validate } = require("./user.validate");
 //GET ALL THE USER
 router.get("/", (req, res) => {
   const { limit, page, search } = req.query; //use for search,sorting and filter
@@ -6,7 +7,7 @@ router.get("/", (req, res) => {
   res.json({ msg: "Hello from get user" });
 });
 //ADD NEW USER
-router.post("/", (req, res) => {
+router.post("/", validate, (req, res, next) => {
   console.log(req.body);
   //database opeartion
   res.json({ msg: "Hello from post user" });
